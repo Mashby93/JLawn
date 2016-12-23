@@ -9,13 +9,29 @@
  </head>
 	<Body>
 		<?php
-		$sql_view_invoice="";
+		//Connect to database
+		
 			$con = new mysqli("localhost", "id387438_adminm", "lilmike1", "id387438_jlawncare");
 			if ($con->connect_error) {
                         die("Connection failed: " . $con->connect_error);
                     } 
-					
-			$sql_view_invoice = "SELECT * FROM `Invoice`";	
+		
+		?>
+			<div class="container">
+				<h3>Tabs</h3>
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Menu 1</a></li>
+					<li><a href="#">Menu 2</a></li>
+					<li><a href="#">Menu 3</a></li>
+				</ul>
+			</div>
+			
+		<?php
+		$sql_view_invoice="SELECT * FROM `Invoice`";
+			
+			//Assign the query then run		
+			//$sql_view_invoice = "SELECT * FROM `Invoice`";	
 			$result = $con->query($sql_view_invoice);
 			
 			if ($result->num_rows >0){
